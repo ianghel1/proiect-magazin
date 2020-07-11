@@ -25,10 +25,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         populate();
 
         logger.info("Bun Venit!");
+
         System.out.println("Cu ce vrei sa lucrezi?");
         System.out.println("1. Producatori");
         System.out.println("2. Utilizatori");
@@ -54,7 +54,6 @@ public class Main {
 
     public static void alegereProducatori() {
 
-
         System.out.println("Alegeti operatia dorita: ");
         System.out.println("1. Salvare producator");
         System.out.println("2. Stergere producator");
@@ -64,59 +63,20 @@ public class Main {
         int alegereProducator = scanner.nextInt();
         switch (alegereProducator) {
             case 1: {
-                Producator producator = new Producator();
-                String numeProducator = scanner.nextLine();
-                producator.setNume(numeProducator);
-
-                System.out.println("Cate produse vrei sa adaugi?");
-                int alegeNrProduse = scanner.nextInt();
-                List<Produs> produse = new ArrayList<Produs>();
-                for (int i = 0; i < alegeNrProduse; i++) {
-                    System.out.println("Se creeaza produsul: " + (i + 1));
-                    Produs produs = new Produs();
-
-                    System.out.println("Introduceti numele produsului!");
-                    String numeProdus = scanner.nextLine();
-                    produs.setNume(numeProdus);
-
-                    System.out.println("Introduceti pretul produsului");
-                    double pretProdus = scanner.nextDouble();
-                    produs.setPret(pretProdus);
-
-                    System.out.println("Introduceti cantitatea stocului");
-                    int cantitateStoc = scanner.nextInt();
-                    produs.setCantitateStoc(cantitateStoc);
-
-                    produse.add(produs);
-
-                }
-
-                producator.setProduse(produse);
+                adaugareProduseLaProducator();
                 break;
             }
             case 2: {
-                System.out.println("Care producator doriti sa fie sters? \n introduceti id");
-                Long idProducatoruluiDeSters = scanner.nextLong();
-                producatorController.deleteProducator(idProducatoruluiDeSters);
+                stergereProducator();
                 break;
             }
             case 3: {
-                System.out.println("Alegeti producatorul pe care vreti sa-l modificati");
-                System.out.println("Introduceti id-ul producatorului: ");
-                Long idProducatorDeModificat = scanner.nextLong();
-                Producator producatorGasit = producatorController.findProducator(idProducatorDeModificat);
+                modifcareProducator();
 
-//                        TODO : sa poata fi modificat orice field al producatorului
-                System.out.println("Introduceti noul nume");
-                String noulNume = scanner.nextLine();
-                producatorGasit.setNume(noulNume);
-                producatorController.updateProducator(producatorGasit);
                 break;
             }
             case 4: {
-                System.out.println("Introduceti id-ul producatorului pe care il cautati");
-                Long idProducatorCautat = scanner.nextLong();
-                producatorController.findProducator(idProducatorCautat);
+                cautareProducator();
                 break;
             }
             default: {
@@ -124,6 +84,71 @@ public class Main {
                 break;
             }
         }
+    }
+
+    private static void cautareProducator() {
+        System.out.println("Introduceti id-ul producatorului pe care il cautati");
+        Long idProducatorCautat = scanner.nextLong();
+        producatorController.findProducator(idProducatorCautat);
+    }
+
+    private static void modifcareProducator() {
+        System.out.println("Introduceti id-ul producatorului pe care doriti sa il modificati");
+        Long idProducatorDeModificat = scanner.nextLong();
+        Producator producatorGasit = producatorController.findProducator(idProducatorDeModificat);
+
+        System.out.println("Ce anume vreti sa modificati la producatorul " + producatorGasit.getId());
+        System.out.println("1. numele");
+        System.out.println("2. produsele");
+        int alegereModificare = scanner.nextInt();
+        switch (alegereModificare) {
+            case 1: {
+                System.out.println("Introduceti noul nume");
+                String noulNume = scanner.nextLine();
+                producatorGasit.setNume(noulNume);
+                producatorController.updateProducator(producatorGasit);
+                break;
+            }
+            //todo metoda prin care sa se modifice produsele producatorului
+        }
+//                        TODO : sa poata fi modificat orice field al producatorului
+    }
+
+    private static void stergereProducator() {
+        System.out.println("Care producator doriti sa fie sters? \n introduceti id");
+        Long idProducatoruluiDeSters = scanner.nextLong();
+        producatorController.deleteProducator(idProducatoruluiDeSters);
+    }
+
+    private static void adaugareProduseLaProducator() {
+        Producator producator = new Producator();
+        String numeProducator = scanner.nextLine();
+        producator.setNume(numeProducator);
+
+        System.out.println("Cate produse vrei sa adaugi?");
+        int alegeNrProduse = scanner.nextInt();
+        List<Produs> produse = new ArrayList<Produs>();
+        for (int i = 0; i < alegeNrProduse; i++) {
+            System.out.println("Se creeaza produsul: " + (i + 1));
+            Produs produs = new Produs();
+
+            System.out.println("Introduceti numele produsului!");
+            String numeProdus = scanner.nextLine();
+            produs.setNume(numeProdus);
+
+            System.out.println("Introduceti pretul produsului");
+            double pretProdus = scanner.nextDouble();
+            produs.setPret(pretProdus);
+
+            System.out.println("Introduceti cantitatea stocului");
+            int cantitateStoc = scanner.nextInt();
+            produs.setCantitateStoc(cantitateStoc);
+
+            produse.add(produs);
+
+        }
+
+        producator.setProduse(produse);
     }
 
     public static void alegereUtilizatori() {
@@ -169,10 +194,43 @@ public class Main {
         System.out.println("Introduceti id-ul utilizatorului pe care vreti sa-l modificati");
         Long idUtilizatorDeModificat = scanner.nextLong();
         Utilizator utilizatorGasit = utilizatorController.findUtilizator(idUtilizatorDeModificat);
-        System.out.println("Introduceti noul nume");
-        String noulNume = scanner.nextLine();
-        utilizatorGasit.setNume(noulNume);
-        utilizatorController.updateUtilizator(utilizatorGasit);
+
+        System.out.println("Ce vreti sa modificati la utilizatorul "+ utilizatorGasit.getId());
+        System.out.println("1. numele");
+        System.out.println("2. prenumele");
+        System.out.println("3. adresa");
+        System.out.println("4. numarul de telefon");
+
+        int optiuneModificareUtilizator = scanner.nextInt();
+
+        switch (optiuneModificareUtilizator){
+            case 1:{
+                System.out.println("Introduceti noul nume");
+                String noulNume = scanner.nextLine();
+                utilizatorGasit.setNume(noulNume);
+                utilizatorController.updateUtilizator(utilizatorGasit);
+            }
+            case 2:{
+                System.out.println("introduceti noul prenume");
+                String noulPrenume = scanner.nextLine();
+                utilizatorGasit.setPrenume(noulPrenume);
+                utilizatorController.updateUtilizator(utilizatorGasit);
+            }
+            case 3:{
+                System.out.println("introduceti noua adresa");
+                String adresaNoua = scanner.nextLine();
+                utilizatorGasit.setAdresa(adresaNoua);
+                utilizatorController.updateUtilizator(utilizatorGasit);
+            }
+            case 4:{
+                System.out.println("Introduceti noul numar de telefon");
+                String nrTelefonNou = scanner.nextLine();
+                utilizatorGasit.setTelefon(nrTelefonNou);
+                utilizatorController.updateUtilizator(utilizatorGasit);
+            }
+        }
+
+
     }
 
     public static void stergereUtilizator() {
@@ -236,10 +294,35 @@ public class Main {
         System.out.println("introduceti id-ul produsului pe care vreti sa il modificati");
         Long idProdusDeModificat = scanner.nextLong();
         Produs produsGasit = produsController.findProdus(idProdusDeModificat);
-        System.out.println("introduceti noul nume");
-        String noulNume = scanner.nextLine();
-        produsGasit.setNume(noulNume);
-        produsController.updateProdus(produsGasit);
+
+        System.out.println("Ce anume vreti sa modificati la produsul " + produsGasit.getNume());
+        System.out.println("1. numele");
+        System.out.println("2. pretul");
+        System.out.println("3. cantitatea de pe stoc");
+
+        int alegereModificare = scanner.nextInt();
+        switch (alegereModificare) {
+            case 1: {
+                System.out.println("introduceti noul nume");
+                String noulNume = scanner.nextLine();
+                produsGasit.setNume(noulNume);
+                produsController.updateProdus(produsGasit);
+            }
+            case 2: {
+                System.out.println("Introduceti noul pret al produslui " + produsGasit.getNume());
+                double pretNou = scanner.nextDouble();
+                produsGasit.setPret(pretNou);
+                produsController.updateProdus(produsGasit);
+            }
+            case 3: {
+                System.out.println("Introduceti noua cantitate de pe stoc al produsului: " + produsGasit.getNume());
+                int cantitateNoua = scanner.nextInt();
+                produsGasit.setCantitateStoc(cantitateNoua);
+                produsController.updateProdus(produsGasit);
+            }
+        }
+
+
     }
 
     public static void stergereProdus() {
