@@ -16,7 +16,7 @@ public class Produs {
     @Column(name = "cantitate_stoc")
     private int cantitateStoc;
 
-    @OneToMany(mappedBy = "producator")
+    @OneToMany(mappedBy = "parent")
     private Producator producator;
 
     public Produs() {
