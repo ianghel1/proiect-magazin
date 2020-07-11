@@ -1,6 +1,7 @@
 package controllers;
 
 import modele.Producator;
+import modele.Produs;
 import services.ProducatorService;
 
 import java.util.logging.Logger;

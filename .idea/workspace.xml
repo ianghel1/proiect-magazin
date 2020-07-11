@@ -20,28 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b3c9d1-636d-4ff0-b6c8-10cab0c20d4b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/Magazin.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/magazin/src/main/test/ProducatorControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/magazin/src/main/java/controllers/ProducatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/magazin/src/main/java/controllers/ProducatorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/magazin/src/main/test/ProdusControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/magazin/src/main/test/ProdusControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/controllers/ProducatorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/controllers/ProdusController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/controllers/UtilizatorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/dao/ProducatorDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/dao/ProdusDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/dao/UtilizatorDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/magazinConfig/MagazinConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/modele/Producator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/modele/Produs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/modele/Utilizator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/services/ProducatorService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/services/ProdusService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazin/target/classes/services/UtilizatorService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
