@@ -17,12 +17,12 @@ public class ProdusController {
         return produsService.saveProdus(produs);
     }
 
-    public boolean saveProduse(List<Produs> produse) {
-        logger.info("Se salveaza produsele");
-        return produsService.saveProduse(produse);
-    }
+//    public boolean saveProduse(List<Produs> produse) {
+//        logger.info("Se salveaza produsele");
+//        return produsService.saveProduse(produse);
+//    }
 
-    public Produs findProdus(Long id) {
+    public Produs findProdus(int id) {
         Produs produsGasit = produsService.getProdusById(id);
         logger.info("Produsul gasit: " + produsGasit.toString());
 
@@ -37,7 +37,7 @@ public class ProdusController {
     }
 
 
-    public boolean deleteProdus(Long id) {
+    public boolean deleteProdus(int id) {
         logger.info("Produsul se sterge...");
         Produs produsCautat = produsService.getProdusById(id);
         boolean isProdusDeleted = produsService.deleteProdus(id);

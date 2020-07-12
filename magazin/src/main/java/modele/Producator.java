@@ -1,6 +1,7 @@
 package modele;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "Producator")
@@ -9,26 +10,26 @@ public class Producator {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "producatorId")
+    private int producatorId;
 
     @Column(name = "nume")
     private String nume;
 
-    @ManyToOne
-    @Column(name = "produse")
-    private List<Produs> produse;
+    @ManyToMany(mappedBy = "producator", fetch = FetchType.EAGER)
+//    @Column(name = "produse")
+    private List<Produs> produse = new ArrayList<Produs>();
 
     public Producator() {
 //        constructor empty by default
     }
 
-    public Long getId() {
-        return id;
+    public int getProducatorId() {
+        return producatorId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProducatorId(int producatorId) {
+        this.producatorId = producatorId;
     }
 
     public String getNume() {
@@ -50,7 +51,7 @@ public class Producator {
     @Override
     public String toString() {
         return "Producator{" +
-                "id=" + id +
+                "id=" + producatorId +
                 ", nume='" + nume + '\'' +
                 ", produse='" + produse + '\'' +
                 '}';

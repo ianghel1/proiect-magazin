@@ -17,14 +17,14 @@ public class ProducatorController {
         return producatorService.saveProducator(producator);
     }
 
-    public Producator findProducator(Long id) {
+    public Producator findProducator(int id) {
         Producator producatorGasit = producatorService.getProducatorById(id);
         logger.info("Producatorul gasit: " + producatorGasit.toString());
 
         return producatorGasit;
     }
 
-    public boolean deleteProducator(Long id) {
+    public boolean deleteProducator(int id) {
         logger.info("Producatorul se sterge...");
         Producator producatorCautat = producatorService.getProducatorById(id);
 
@@ -44,9 +44,9 @@ public class ProducatorController {
         boolean isProducatorUpdated = producatorService.updateProducator(producator);
 
         if (isProducatorUpdated) {
-            logger.info("Producatorul " + producator.getId() + " a fost actualizat");
+            logger.info("Producatorul " + producator.getProducatorId() + " a fost actualizat");
         } else {
-            logger.info("Producatorul " + producator.getId() + " nu a fost actualizat!");
+            logger.info("Producatorul " + producator.getProducatorId() + " nu a fost actualizat!");
         }
 
         return isProducatorUpdated;

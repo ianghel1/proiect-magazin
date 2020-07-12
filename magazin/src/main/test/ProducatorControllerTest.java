@@ -56,13 +56,13 @@ public class ProducatorControllerTest {
     public void findProducatorTest() {
         // given
         Producator producator = new Producator();
-        producator.setId(4L);               // vreau sa "controlez" cu ce id intra in BD, sa pot gasi producatorul dupa acel id
+        producator.setProducatorId(4);               // vreau sa "controlez" cu ce id intra in BD, sa pot gasi producatorul dupa acel id
         producator.setNume("Ioana_SRL");
         producator.setProduse(listaProduse);
         producatorController.saveProducator(producator); // am introdus producatorul in BD
 
         // when
-        Producator producatorFind = producatorController.findProducator(4L);
+        Producator producatorFind = producatorController.findProducator(4);
 
         // then
         assertNotNull(producatorFind);                      // verificare producator gasit sa nu fie null
@@ -74,12 +74,12 @@ public class ProducatorControllerTest {
     public void updateProducatorTest(){
         //given
         Producator producator = new Producator();
-        producator.setId(14L);               // vreau sa "controlez" cu ce id intra in BD, sa pot face update dupa acel id
+        producator.setProducatorId(14);               // vreau sa "controlez" cu ce id intra in BD, sa pot face update dupa acel id
         producator.setNume("IF_SRL");
         producator.setProduse(listaProduse);
         producatorController.saveProducator(producator); // am introdus producatorul in BD
 
-        Producator producatorForUpdate = producatorController.findProducator(14L); // caut produsul dupa id-ul cunoscut (setat anterior)
+        Producator producatorForUpdate = producatorController.findProducator(14); // caut produsul dupa id-ul cunoscut (setat anterior)
         producatorForUpdate.setNume("IoanaF_SRL");         // noul nume al producatorului
 
         //when
@@ -95,13 +95,13 @@ public class ProducatorControllerTest {
     public void deleteProducatorTest(){
         //given
         Producator producator = new Producator();
-        producator.setId(22L);
+        producator.setProducatorId(22);
         producator.setNume("RO_DR_SRL");
         producator.setProduse(listaProduse);
         producatorController.saveProducator(producator);  // salvez in BD producatorul cu IDul cunoscut pentru testing
 
         //when
-        boolean isDeleted = producatorController.deleteProducator(22L);
+        boolean isDeleted = producatorController.deleteProducator(22);
 
         //then
         assertTrue(isDeleted);

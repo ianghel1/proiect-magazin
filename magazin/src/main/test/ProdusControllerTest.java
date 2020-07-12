@@ -44,10 +44,10 @@ public class ProdusControllerTest {
         produs.setNume("Fanta");
         produs.setPret(7.99);
         produs.setCantitateStoc(5);
-        produs.setId(15L);  // vreau sa "controlez" cu ce id intra in Baza de Date, sa pot face update dupa acel id
+        produs.setId(15);  // vreau sa "controlez" cu ce id intra in Baza de Date, sa pot face update dupa acel id
         produsController.saveProdus(produs);                          // salvat in Baza de Date
 
-        Produs produsForUpdate = produsController.findProdus(15L); // caut produsul dupa id-ul cunoscut (setat anterior)
+        Produs produsForUpdate = produsController.findProdus(15); // caut produsul dupa id-ul cunoscut (setat anterior)
         produsForUpdate.setPret(6.99);                                // noul pret (discount :)  )
 
         //when
@@ -63,14 +63,14 @@ public class ProdusControllerTest {
     public void deleteProdusTest(){
         //given
         Produs produs = new Produs();
-        produs.setId(12L);
+        produs.setId(12);
         produs.setNume("Sprite");
         produs.setPret(4.99);
         produs.setCantitateStoc(12);
         produsController.saveProdus(produs);       // salvat in Baza de Date
 
         //when
-        boolean isDeleted = produsController.deleteProdus(12L);
+        boolean isDeleted = produsController.deleteProdus(12);
 
         //then
         assertTrue(isDeleted);

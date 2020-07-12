@@ -31,7 +31,7 @@ public class UtilizatorControllerTest {
     public void findUtilizatorTest() {
         // given
         Utilizator utilizator = new Utilizator();
-        utilizator.setId(5L);               // vreau sa "controlez" cu ce id intra in BD, sa pot gasi utilizatorul dupa acel id
+        utilizator.setId(5);               // vreau sa "controlez" cu ce id intra in BD, sa pot gasi utilizatorul dupa acel id
         utilizator.setNume("Farafrica");
         utilizator.setPrenume("Gica");
         utilizator.setAdresa("Romania");
@@ -41,7 +41,7 @@ public class UtilizatorControllerTest {
         utilizatorController.saveUtilizator(utilizator); // am introdus utilizatorul in BD
 
         // when
-        Utilizator utilizatorFind = utilizatorController.findUtilizator(5L);
+        Utilizator utilizatorFind = utilizatorController.findUtilizator(5);
 
         // then
         assertNotNull(utilizatorFind);                      // verificare utilizator gasit sa nu fie null
@@ -53,7 +53,7 @@ public class UtilizatorControllerTest {
     public void updateUtilizatorTest(){
         //given
         Utilizator utilizator = new Utilizator();
-        utilizator.setId(2L);               // vreau sa "controlez" cu ce id intra in BD, sa pot face update dupa acel id
+        utilizator.setId(2);               // vreau sa "controlez" cu ce id intra in BD, sa pot face update dupa acel id
         utilizator.setNume("Furnica");
         utilizator.setPrenume("Mirciulica");
         utilizator.setAdresa("Bulgaria");
@@ -61,7 +61,7 @@ public class UtilizatorControllerTest {
         utilizator.setParola(123L);
 
         utilizatorController.saveUtilizator(utilizator); // am introdus utilizatorul in BD
-        Utilizator utilizatorForUpdate = utilizatorController.findUtilizator(2L);
+        Utilizator utilizatorForUpdate = utilizatorController.findUtilizator(2);
 
         utilizatorForUpdate.setParola(548L);         // noua parola a  utilizatorului
         utilizatorForUpdate.setAdresa("Romania"); // noua adresa a utilizatorului
@@ -81,7 +81,7 @@ public class UtilizatorControllerTest {
     public void deleteUtilizatorTest(){
         //given
         Utilizator utilizator = new Utilizator();
-        utilizator.setId(3L);               // vreau sa "controlez" cu ce id intra in BD, sa pot face update dupa acel id
+        utilizator.setId(3);               // vreau sa "controlez" cu ce id intra in BD, sa pot face update dupa acel id
         utilizator.setNume("Floare");
         utilizator.setPrenume("Mugurel");
         utilizator.setAdresa("Italia");
@@ -89,9 +89,9 @@ public class UtilizatorControllerTest {
         utilizator.setParola(365478L);
 
         utilizatorController.saveUtilizator(utilizator); // am introdus utilizatorul in BD
-        Utilizator utilizatorToDelete = utilizatorController.findUtilizator(3L);
+        Utilizator utilizatorToDelete = utilizatorController.findUtilizator(3);
         //when
-        boolean isDeleted = utilizatorController.deleteUtilizator(3L);
+        boolean isDeleted = utilizatorController.deleteUtilizator(3);
 
         //then
         assertTrue(isDeleted);

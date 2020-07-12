@@ -9,19 +9,18 @@ import java.util.List;
 
 public class ProdusDao {
 
-    public Produs create(Produs produs) {
+    public void create(Produs produs) {
         Transaction transaction = null;
         try {
             Session session = MagazinConfig.getSessionFactory().openSession();
             transaction = session.beginTransaction();
 
-//            cast la Produs deoarece astepta un Serializable
-            Produs produsSalvat = (Produs) session.save(produs);
+//            doar salveaza
+             session.save(produs);
 
             transaction.commit();
             session.close();
 
-            return produsSalvat;
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -32,10 +31,9 @@ public class ProdusDao {
 //            e.printStackTrace();
         }
 
-        return null;
     }
 
-    public Produs findById(Long id) {
+    public Produs findById(int id) {
         try {
             Session session = MagazinConfig.getSessionFactory().openSession();
 

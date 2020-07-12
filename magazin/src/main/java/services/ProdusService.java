@@ -13,10 +13,10 @@ public class ProdusService {
 
     //    metode CREATE/SAVE
     public boolean saveProdus(Produs produs) {
-        Produs produsSalvat = dao.create(produs);
+        dao.create(produs);
 
-        if (produsSalvat != null) {
-            System.out.println("Produsul " + produsSalvat.getNume()
+        if (produs != null) {
+            System.out.println("Produsul " + produs.getNume()
                     + " a fost salvat!");
 
             return true;
@@ -25,18 +25,18 @@ public class ProdusService {
         return false;
     }
 
-    public boolean saveProduse(List<Produs> list) {
-        List<Produs> produse =new ArrayList <Produs>();
-        System.out.println("Se salveaza lista!");
-        for (Produs produs : list) {
-            Produs produsSalvat = dao.create(produs);
-            produse.add(produsSalvat);
-        }
-        return produse.size() == list.size();
-    }
+//    public boolean saveProduse(List<Produs> list) {
+//        List<Produs> produse =new ArrayList <Produs>();
+//        System.out.println("Se salveaza lista!");
+//        for (Produs produs : list) {
+//            Produs produsSalvat = dao.create(produs);
+//            produse.add(produsSalvat);
+//        }
+//        return produse.size() == list.size();
+//    }
 
     //    METODE READ/FIND
-    public Produs getProdusById(Long id) {
+    public Produs getProdusById(int id) {
         System.out.println("Se cauta produs " + id);
 
         Produs produsGasit = dao.findById(id);
@@ -62,7 +62,7 @@ public class ProdusService {
     }
 
     //    METODE DELETE
-    public boolean deleteProdus(Long id ) {
+    public boolean deleteProdus(int id ) {
         boolean isProdusDeleted = false;
         System.out.println("Se sterge produsul..");
         Produs produs = dao.findById(id);

@@ -12,9 +12,9 @@ public class UtilizatorService {
 
 //    metode CREATE/SAVE
     public boolean saveUtilizator(Utilizator utilizator) {
-        Utilizator utilizatorSalvat = dao.create(utilizator);
+        dao.create(utilizator);
 
-        if (utilizatorSalvat != null) {
+        if (utilizator != null) {
             System.out.println("Utilizatorul a fost salvat!");
 
             return true;
@@ -23,16 +23,16 @@ public class UtilizatorService {
         return false;
     }
 
-    public void saveUtilizatori(List<Utilizator> list) {
-        System.out.println("Se salveaza lista!");
-
-        for (Utilizator utilizator : list) {
-            Utilizator utilizatorSalvat = dao.create(utilizator);
-        }
-    }
+//    public void saveUtilizatori(List<Utilizator> list) {
+//        System.out.println("Se salveaza lista!");
+//
+//        for (Utilizator utilizator : list) {
+//            Utilizator utilizatorSalvat = dao.create(utilizator);
+//        }
+//    }
 
 //    METODE READ/FIND
-    public Utilizator getUtilizatorById(Long id) {
+    public Utilizator getUtilizatorById(int id) {
         System.out.println("Se cauta utilizatorul " + id);
 
         Utilizator utilizatorGasit = dao.findById(id);
@@ -68,7 +68,7 @@ public class UtilizatorService {
     }
 
 //    METODE DELETE
-    public boolean deleteUtilizator(Long id ) {
+    public boolean deleteUtilizator(int id ) {
         boolean isUtilizatorDeleted = false;
         System.out.println("Se sterge utilizatorul!");
         Utilizator utilizator = dao.findById(id);

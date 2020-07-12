@@ -20,14 +20,14 @@ public class UtilizatorController {
         return utilizatorService.saveUtilizator(utilizator);
     }
 
-    public Utilizator findUtilizator(Long id) {
+    public Utilizator findUtilizator(int id) {
         Utilizator utilizatorGasit = utilizatorService.getUtilizatorById(id);
         logger.info("Utilizatorul gasit: " + utilizatorGasit.toString());
 
         return utilizatorGasit;
     }
 
-    public boolean deleteUtilizator(Long id) {
+    public boolean deleteUtilizator(int id) {
         logger.info("Utilizatorul se sterge...");
         Utilizator UtilizatorCautat = utilizatorService.getUtilizatorById(id);
     boolean isUtilizatorDeleted = utilizatorService.deleteUtilizator(id);

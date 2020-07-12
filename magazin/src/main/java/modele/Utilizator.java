@@ -6,7 +6,7 @@ public class Utilizator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private int id;
     @Column(name = "nume")
     private String nume;
     @Column(name = "prenume")
@@ -30,10 +30,10 @@ public class Utilizator {
     public Utilizator() {
 //        constructor empty by default
     }
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getNume() {
@@ -66,6 +66,7 @@ public class Utilizator {
     public void setParola(Long parola) {
         this.parola = parola;
     }
+
     @Override
     public String toString() {
         return "Utilizator{" +
@@ -74,6 +75,8 @@ public class Utilizator {
                 ", prenume='" + prenume + '\'' +
                 ", adresa='" + adresa + '\'' +
                 ", telefon='" + telefon + '\'' +
+                ", username='" + username + '\'' +
+                ", parola=" + parola +
                 '}';
     }
 }

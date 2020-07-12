@@ -10,10 +10,10 @@ public class ProducatorService {
 
     //    metode CREATE / SAVE
     public boolean saveProducator(Producator producator) {
-        Producator producatorSalvat = dao.create(producator);
+         dao.create(producator);
 
-        if (producatorSalvat != null) {
-            System.out.println("Producatorul " + producatorSalvat.getNume()
+        if (producator != null) {
+            System.out.println("Producatorul " + producator.getNume()
                     + " a fost salvat!");
             return true;
         }
@@ -24,13 +24,13 @@ public class ProducatorService {
         System.out.println("Se salveaza lista!");
 
         for (Producator producator : list) {
-            Producator producatorSalvat = dao.create(producator);
+            dao.create(producator);
         }
     }
 
 //    METODE READ / FIND/
 
-    public Producator getProducatorById(Long id) {
+    public Producator getProducatorById(int id) {
         System.out.println("se cauta producator " + id);
 
         Producator producatorGasit = dao.findById(id);
@@ -54,7 +54,7 @@ public class ProducatorService {
     }
 
     //METODE DELETE
-    public boolean deleteProducator(Long id) {
+    public boolean deleteProducator(int id) {
         boolean isProducatorDeleted = false;
         System.out.println("Se sterge producatorul cu id-ul: " + id);
         Producator producator = dao.findById(id);
