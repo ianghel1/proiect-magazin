@@ -35,6 +35,19 @@ public class UtilizatorDao {
         return null;
     }
 
+
+    public Utilizator findByUsername(String username) {
+        try {
+            Session session = MagazinConfig.getSessionFactory().openSession();
+            Utilizator utilizator = session.find(Utilizator.class, username);
+            session.close();
+            return utilizator;
+        } catch (Exception e) {
+            System.out.println("Utilizatorul " + username + " nu a fost gasit!");
+        }
+        return null;
+    }
+
     public Utilizator findById(Long id) {
         try {
             Session session = MagazinConfig.getSessionFactory().openSession();

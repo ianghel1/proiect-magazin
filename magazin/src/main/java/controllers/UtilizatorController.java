@@ -9,6 +9,11 @@ public class UtilizatorController {
     private static final Logger logger = Logger.getLogger(UtilizatorController.class.getName());
     UtilizatorService utilizatorService = new UtilizatorService();
 
+    public Utilizator findUtilizator(String username){
+        Utilizator utilizatorGasit = utilizatorService.getUtilizatorByUsername(username);
+        return utilizatorGasit;
+    }
+
     public boolean saveUtilizator(Utilizator utilizator) {
         logger.info("Utilizatorul " + utilizator.getNume() + " se salveaza...");
 

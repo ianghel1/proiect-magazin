@@ -15,6 +15,16 @@ public class Utilizator {
     private String adresa;
     @Column(name = "telefon")
     private String telefon;
+
+    @Column(name = "username")
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
     @Column(name = "parola")
     private Long parola;
     public Utilizator() {

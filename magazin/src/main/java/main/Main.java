@@ -26,16 +26,33 @@ public class Main {
     public static void main(String[] args) {
 
         populate();
-
         logger.info("Bun Venit!");
-
+        logger.info("Please log in");
+        System.out.println("Username: ");
+        String userInputUsername = scanner.nextLine();
+        if (utilizatorController.findUtilizator(userInputUsername)!= null){
+            System.out.println("Intoruceti parola: ");
+            Long userInputPassword = scanner.nextLong();
+            if (userInputPassword == utilizatorController.findUtilizator(userInputUsername).getParola()){
+                System.out.println("V-ati logat cu succes! ");
+            }else {
+                logger.warning("Ati introdus o parola gresita!");
+            }
+        }else {
+            logger.warning("Numele de utilizator nu exista!");
+            System.out.println("Doriti sa creati un cont nou?");
+            String userInputCreareContNou = scanner.nextLine();
+            if (userInputCreareContNou.equalsIgnoreCase("da")){
+                creareUtilizator();
+            }else {
+                System.out.println("Va mai asteptam!");
+            }
+        }
         System.out.println("Cu ce vrei sa lucrezi?");
         System.out.println("1. Producatori");
         System.out.println("2. Utilizatori");
         System.out.println("3. Produse");
-
         int alegere = scanner.nextInt();
-
         switch (alegere) {
             case 1: {
                 alegereProducatori();
@@ -51,6 +68,7 @@ public class Main {
             }
         }
     }
+
 
     public static void alegereProducatori() {
 
@@ -377,10 +395,6 @@ public class Main {
         produsDao.create(produs1);
         producatorDao.create(producator);
         utilizatorDao.create(utilizator);
-
-
     }
-
-
 }
 

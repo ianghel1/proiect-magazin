@@ -80,4 +80,11 @@ public class UtilizatorService {
 
         return isUtilizatorDeleted;
     }
+
+    public Utilizator getUtilizatorByUsername(String username){
+        System.out.println("Se cauta utilizatorul " + username + " ...");
+        Utilizator utilizatorGasit = dao.findByUsername(username);
+        return utilizatorGasit;
+    }
+
 }
